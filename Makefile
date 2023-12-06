@@ -1,11 +1,13 @@
 CC = gcc
 CFLAGS = -Wall -std=c89
 
-all: main.o
-	$(CC) $(CFLAGS) -o is_dag main.o
+OBJS = main.o digraph_utils.o
 
-main.o: main.c
-	$(CC) $(CFLAGS) -c main.c
+all: $(OBJS)
+	$(CC) $(CFLAGS) -o is_dag $(OBJS)
 
 clean:
-	\rm -f is_dag main.o
+	$(RM) -f is_dag $(OBJS)
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $<

@@ -1,16 +1,21 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include "digraph_utils.h"
 
+/*
+ * Forward declarations of is_dag
+ * See function definition further down for documentation
+ */
 int is_dag(uint32_t digraph[], int n_vertices);
-int read_graph(const char *filename, uint32_t *graph[], int *n_vertices);
+
 
 int main(int argc, const char **argv)
 {
 	int i;
 
 	if (argc <= 1) {
-		fprintf(stderr, "\nUsage: is_dag <digraph file>\n\n");
+		fprintf(stderr, "\nUsage: is_dag <digraph file>+\n\n");
 		return 1;
 	}
 
@@ -32,33 +37,10 @@ int main(int argc, const char **argv)
 }
 
 
+/*
+ *
+ */
 int is_dag(uint32_t digraph[], int n_vertices)
 {
-	return 0;
-}
-
-
-int read_graph(const char *filename, uint32_t *graph[], int *n_vertices)
-{
-	FILE *f;
-	int i, j;
-
-	if ((f = fopen(filename, "r")) == NULL) {
-		return 1;
-	}
-
-	fscanf(f, "%d", n_vertices);
-	*graph = malloc(sizeof(uint32_t) * (size_t)(*n_vertices));
-	for (i = 0; i < *n_vertices; i++) {
-		for (j = 0; j < 4; j++) {
-			int b;
-			fscanf(f, "%2x", &b);
-			(*graph)[i] <<= 8;
-			(*graph)[i] |= (uint32_t)b;
-		}
-	}
-
-	fclose(f);
-
 	return 0;
 }
