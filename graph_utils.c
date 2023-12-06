@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "digraph_utils.h"
+#include "graph_utils.h"
 
 void init_graph(uint32_t graph[], int n_vertices)
 {

@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -std=c89
 
-OBJS = main.o digraph_utils.o
+OBJS = main.o graph_utils.o
 
 all: $(OBJS)
 	$(CC) $(CFLAGS) -o is_dag $(OBJS)

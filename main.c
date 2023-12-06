@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include "digraph_utils.h"
+#include "graph_utils.h"
 
 /*
  * Forward declarations of is_dag
