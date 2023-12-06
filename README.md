@@ -26,7 +26,7 @@ dag; note that the edge $(0,2)$ replaces the edge $(2,0)$ from the digraph in Fi
 <em>Fig. 2: A simple dag.</em>
 </p>
 
-Recall that a digraph $G = (V,E)$ may be respresented as a set of adjacency
+A digraph $G = (V,E)$ may be respresented as a set of adjacency
 lists, one list for each vertex $v \in V$. The adjacency list for $v$ contains the vertices
 $u_i$ for all $(v,u_i) \in E$, i.e, all vertices to which $v$ contains an outgoing edge.
 The adjacency list for vertex $0$ in Fig. 1 contains the vertices $1$ and $3$.
