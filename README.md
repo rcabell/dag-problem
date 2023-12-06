@@ -36,6 +36,12 @@ for each vertex $v$ may be represented as a bit-array, where a bit value of 1 in
 array position $i$ implies an edge $(v, v_i)$. When $|V| \le 32$, a 32-bit integer
 is sufficient to represent the adjacency list for a vertex.
 
+<p align="center">
+<img src="/figures/adj_list.svg"/>
+<br>
+<em>Fig. 3: A bit-array representation of an adjacency list.</em>
+</p>
+
 In this exercise, our objective is to write a function in C/C++ that will
 determine whether a digraph is a dag. The main driver program, which is
 provided in the file `main.c`, takes as a command-line argument the name of a file containing a
