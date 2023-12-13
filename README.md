@@ -43,7 +43,7 @@ representation of the adjacency list for vertex $0$ of the digraph in Fig. 1.
 <em>Fig. 3: A bit-array representation of an adjacency list.</em>
 </p>
 
-In this exercise, our objective is to write a function in C/C++ that will
+In this exercise, our objective is to write a function in Fortran that will
 determine whether a digraph is a dag. The main driver program, which is
 provided in the file `main.c`, takes as a command-line argument the name of a file containing a
 representation of a digraph and reads the graph into an array of `uint32_t`
@@ -52,8 +52,8 @@ and each element $i$ of the array stores the adjacency list for vertex $v_i$.
 
 The function to determine whether a digraph is a dag has the following
 prototype:
-```c
-int is_dag(uint32_t digraph[], int n_vertices);
+```fortran
+integer(c_int) function is_dag(n_vertices, digraph) bind(C)
 ```
 This function takes as input an adjacency list representation of a digraph
 and the number of vertices in the graph. The size of the `digraph` array is
