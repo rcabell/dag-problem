@@ -57,7 +57,7 @@ int main(int argc, const char **argv)
 int is_dag(uint32_t digraph[], int n_vertices)
 {
 	int i,j;
-	FILE *proc = popen("/usr/bin/tsort 2>&1 >/dev/null | grep -q cycle", "w");
+	FILE *proc = popen("/usr/bin/tsort 2>&1 >/dev/null | grep -q tsort", "w");
 	for (i=0; i < n_vertices; i++) {
 		if (digraph[i]) {
 			for (j = 0; j < n_vertices; j++) {
