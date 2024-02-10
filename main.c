@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "graph_utils.h"
 
 /*
@@ -58,16 +59,12 @@ int main(int argc, const char **argv)
  ********************************************************************************/
 int is_dag(uint32_t digraph[], int n_vertices)
 {
-	int i,j;
-	FILE *proc = popen("/usr/bin/tsort 2>&1 >/dev/null | grep -q tsort", "w");
-	for (i=0; i < n_vertices; i++) {
-		if (digraph[i]) {
-			for (j = 0; j < n_vertices; j++) {
-				if (digraph[i] & (1 << j)) {
-					fprintf(proc, "%d %d\n", i, j);
-				}
-			}
-		}
-	}
+	fflush(stdout);
+	int ofp = dup(1);
+	FILE *proc = popen("tr -d '[:alpha:][:punct:]'|awk '{for(i=2;i<=NF;i++)print$1,$i}'|tsort 2>&1|grep -q tsort", "w");
+	dup2(fileno(proc), 1);
+	print_graph(digraph, n_vertices); fflush(stdout);
+	dup2(ofp, 1);
+	close(ofp);
 	return pclose(proc) != 0;
 }
